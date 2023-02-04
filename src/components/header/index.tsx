@@ -10,6 +10,7 @@ import memoIcon from '@/assets/svg/icon_memo.svg';
 import menuIcon from '@/assets/svg/icon_menu.svg';
 import { StorageKey } from '@/constants';
 
+import BadgeIcon from '../badge-icon';
 import Dropdown from '../dropdown';
 
 function Header() {
@@ -63,7 +64,7 @@ function Header() {
             return classNames('flex items-center ml-8', statusClass);
           }}
         >
-          <img src={memoIcon} alt="" className="h-6 mr-2" />
+          <BadgeIcon icon={memoIcon} />
           自分の記録
         </NavLink>
         <NavLink
@@ -77,7 +78,7 @@ function Header() {
             return classNames('flex items-center ml-8', statusClass);
           }}
         >
-          <img src={challengeIcon} alt="" className="h-6 mr-2" />
+          <BadgeIcon icon={challengeIcon} />
           チャレンジ
         </NavLink>
         <NavLink
@@ -91,7 +92,7 @@ function Header() {
             return classNames('flex items-center ml-8', statusClass);
           }}
         >
-          <img src={infoIcon} alt="" className="h-6 mr-2" />
+          <BadgeIcon icon={infoIcon} badgeNumber={1} />
           お知らせ
         </NavLink>
         {!sessionStorage.getItem(StorageKey.IsAuthenticated) ? (
