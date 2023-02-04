@@ -30,7 +30,10 @@ function DateRate() {
             cy="90"
           />
         </svg>
-        <span className="absolute text-xl text-white rotate-90">05/21 75</span>
+        <div className="absolute text-white rotate-90">
+          <span className="text-md">05/21</span>&nbsp;
+          <span className="text-xl">75%</span>
+        </div>
       </div>
     </div>
   );

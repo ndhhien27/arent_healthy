@@ -17,8 +17,12 @@ function Login() {
   const handleLogin = () => mutate();
   return (
     <LayoutContainer>
-      <div className="h-[calc(100vh-64px)] flex items-center justify-center">
-        <Button onClick={handleLogin} label="Press to Login!" />
+      <div className="h-[calc(100vh-120px)] flex flex-col items-center justify-center gap-y-5">
+        <Button onClick={handleLogin} label="Press to Login" />
+        <Button
+          onClick={() => (window.location.href = '/column')}
+          label="Press to navigate to Column Page"
+        />
       </div>
     </LayoutContainer>
   );
