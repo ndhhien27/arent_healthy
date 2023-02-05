@@ -57,7 +57,7 @@
     "vite": "^4.1.1"
   },
   "lint-staged": {
-    "*.{js,ts,tsx,jsx}": "eslint --cache --fix"
+    "*.{js,ts,tsx,jsx}": "eslint --fix"
   },
   "msw": {
     "workerDirectory": "public"
