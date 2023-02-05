@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
 import { useState } from 'react';
@@ -9,6 +10,7 @@ import Button from '@/components/button';
 import Chart from '@/components/chart';
 import LayoutContainer from '@/components/layout-container';
 import EntryItem from '@/components/profile/entry-item';
+import MyExerciseItem from '@/components/profile/my-exercise-item';
 import withAuth from '@/HOCs/withAuth';
 
 const ChartFilters = [
@@ -38,15 +40,15 @@ function MyProfile() {
     },
   ];
 
-  const exercises = Array.from({ length: 8 }, (_, idx) => ({
-    id: idx,
+  const exercises = Array.from({ length: 8 }, () => ({
+    id: faker.datatype.uuid(),
     label: '家事全般（立位・軽い）',
     time: 10,
     value: 26,
   }));
 
-  const myDiaris = Array.from({ length: 8 }, (_, idx) => ({
-    id: idx,
+  const myDiaries = Array.from({ length: 8 }, () => ({
+    id: faker.datatype.uuid(),
     time: new Date().toISOString(),
     description:
       '私の日記の記録が一部表示されます。\nテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト…',
@@ -62,7 +64,7 @@ function MyProfile() {
         </div>
         <div className="bg-[#414141] mt-14 text-white px-6 py-4">
           <span>MY EXERCISE</span>
-          <span className="text-[22px] ml-3">2021.05.21</span>
+          <span className="text-[22px] ml-3">{dayjs().format('YYYY.MM.DD')}</span>
           <div className="mt-4">
             <Chart />
           </div>
@@ -83,29 +85,17 @@ function MyProfile() {
         </div>
         <div className="bg-[#414141] mt-14 px-6 py-4 text-white">
           <span>MY EXERCISE</span>
-          <span className="text-[22px] ml-3">2021.05.21</span>
+          <span className="text-[22px] ml-3">{dayjs().format('YYYY.MM.DD')}</span>
           <ul className="grid grid-cols-2 gap-x-6">
             {exercises.map((exercise) => (
-              <li
-                key={exercise.id}
-                className="text-white border-b-[1px] border-solid border-[#777777] mt-2 pb-[2px]"
-              >
-                <div className="flex">
-                  &bull;
-                  <div className="ml-3 flex justify-between w-full">
-                    {exercise.label}
-                    <span className="text-[#FFCC21]">{exercise.time}</span>
-                  </div>
-                </div>
-                <span className="text-[#FFCC21] ml-5">{exercise.value}kcal</span>
-              </li>
+              <MyExerciseItem exercise={exercise} key={exercise.id} />
             ))}
           </ul>
         </div>
         <div className="mt-14 mb-8">
           <span className="text-[22px]">MY DIARY</span>
           <div className="grid grid-cols-4 gap-3 mt-2">
-            {myDiaris.map((myDiary) => (
+            {myDiaries.map((myDiary) => (
               <div
                 className="border-2 border-[#707070] border-solid p-4"
                 key={myDiary.id}

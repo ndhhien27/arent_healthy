@@ -12,3 +12,10 @@ export interface ColumnModel {
   image: string;
   createdAt: string;
 }
+
+export interface ExerciseModel {
+  id: string;
+  time: string | number;
+  value: string | number;
+  label: string;
+}
