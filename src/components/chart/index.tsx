@@ -30,20 +30,10 @@ interface LineProps {
 }
 
 function Chart({ data: dataProp, options }: LineProps) {
-  const labels = [
-    '1月',
-    '2月',
-    '3月',
-    '4月',
-    '5月',
-    '6月',
-    '7月',
-    '8月',
-    '9月',
-    '10月',
-    '11月',
-    '12月',
-  ];
+  const labels = Array.from({ length: 12 }, (_, i) => {
+    const curMonth = new Date().getMonth() + 1;
+    return i >= 12 - curMonth ? `${curMonth + (i - 12) + 1}月` : `${curMonth + i + 1}月`;
+  });
 
   const data = {
     labels,
