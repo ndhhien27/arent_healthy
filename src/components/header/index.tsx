@@ -105,7 +105,7 @@ function Header() {
               sessionStorage.removeItem(StorageKey.IsAuthenticated);
               window.location.href = '/login';
             }}
-            className="ml-8 text-white"
+            className="ml-8 text-white hover:text-primary"
           >
             Logout
           </button>
