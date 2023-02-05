@@ -63,7 +63,7 @@ function MyProfile() {
           ))}
         </div>
         <div className="bg-[#414141] mt-14 text-white px-6 py-4">
-          <span>MY EXERCISE</span>
+          <span>MY RECORD</span>
           <span className="text-[22px] ml-3">{dayjs().format('YYYY.MM.DD')}</span>
           <div className="mt-4">
             <Chart />

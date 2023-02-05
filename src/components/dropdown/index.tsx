@@ -27,12 +27,12 @@ function Dropdown({ children, menuItems, isOpen, onHide }: IDropdownProps) {
       <div className="relative flex items-center ml-12">
         {children}
         {isOpen ? (
-          <div className="absolute bottom-0 right-0 translate-y-full w-[260px] bg-[#777777] z-[999]">
+          <div className="absolute bottom-0 right-0 translate-y-full w-[260px] z-[999]">
             <ul>
               {menuItems.map((item) => (
-                <li key={item.label}>
+                <li key={item.label} className="bg-[#777777] hover:bg-[#FFCC21]">
                   {item.path ? (
-                    <Link to={item.path} className="w-full h-full">
+                    <Link to={item.path} className="w-full h-full hover:!text-white">
                       <div className="px-8 py-6">{item.label}</div>
                     </Link>
                   ) : null}
